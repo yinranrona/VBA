@@ -1,0 +1,45 @@
+Private Type colType
+    key As String
+    value As Shape
+End Type
+        
+Private Type tbType
+    key As String
+    value(3) As colType
+End Type
+
+Private Sub CommandButton1_Click()
+            
+        Dim tbInfo(3) As tbType
+        Dim colInfo(3) As colType
+        Dim sp As Shape
+        
+        Set sp = ActiveSheet.Shapes.AddShape(msoShapeRectangle, 0, 0, 100, 30)
+        
+        colInfo(0).key = "col1"
+        colInfo(1).key = "col2"
+        colInfo(2).key = "col3"
+        
+        Set colInfo(0).value = sp
+        Set colInfo(1).value = sp
+        Set colInfo(2).value = sp
+        
+        tbInfo(0).key = "tab1"
+        tbInfo(1).key = "tab2"
+        tbInfo(2).key = "tab3"
+        
+        tbInfo(0).value(0) = colInfo(0)
+        tbInfo(0).value(1) = colInfo(1)
+        tbInfo(0).value(2) = colInfo(2)
+        
+        tbInfo(1).value(0) = colInfo(0)
+        tbInfo(1).value(1) = colInfo(1)
+        tbInfo(1).value(2) = colInfo(2)
+    
+        tbInfo(2).value(0) = colInfo(0)
+        tbInfo(2).value(1) = colInfo(1)
+        tbInfo(2).value(2) = colInfo(2)
+      
+        tbInfo(1).value(1).value.Fill.ForeColor.RGB = RGB(0, 178, 90)    
+
+End Sub
